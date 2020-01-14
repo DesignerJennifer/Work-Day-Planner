@@ -1,0 +1,18 @@
+HTML Doc Needs:
+    1. Title
+    2. Current Date
+    3. Rows with:
+        a. Time for each hour from 9AM-5PM
+        b. User input for each row
+        c. Save button for each row
+
+Variables:
+1. Current Date
+2. Colors to indicate:
+    a. Past hours = grey
+    b. Current hour = red
+    c. Upcomming hours = green
+3. User input fields for each hour, that will save user input even if the page is refreshed.
+
+Needs:
+1. local storage to sore user information.
