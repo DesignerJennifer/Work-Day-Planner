@@ -1,0 +1,25 @@
+.titleBlock {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+#plannerTitle {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 900;
+    color: purple;
+    font-size: 3.5em;
+}
+
+#currentDate {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 400;
+    color: black;
+    font-size: 1.5em;
+}
+
+.pastTime {
+    color: gray;
+    
+
+}
