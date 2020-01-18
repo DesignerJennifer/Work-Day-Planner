@@ -1,4 +1,4 @@
-var newDate = moment().format("dddd, MMMM Do YYYY");
-console.log(newDate)
+var currentDay = moment().format("dddd, MMMM Do YYYY");
+console.log(currentDay)
 
-$("#newDate").text(newDate);
+$("#currentDay").text(currentDay);
