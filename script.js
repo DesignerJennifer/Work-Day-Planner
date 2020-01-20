@@ -20,8 +20,8 @@ function showPlanner() {
 
     if (hourValues[index] >= 12) {
       var hours = hourValues[index] - 12;
-      if (hours === 0) {
-        timeDisplay === 12
+      if(hours === 0) {
+        (hours = 12)
       }
       col1.html(hours + ":00 PM")
 
