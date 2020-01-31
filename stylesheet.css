@@ -4,14 +4,16 @@ body {
     line-height: 1;
   }
   
-  textarea{
+  /* textarea{
     background: transparent;
     border: none;
     resize: none;
     color: #000000;
     border-left: 1px solid black;
     padding: 10px;
-  }
+  } */
+
+  
   
   .jumbotron {
     text-align: center;
@@ -35,7 +37,7 @@ body {
     height: 80px;
     border-top: 1px solid white;;
   }
-  
+   
   .hour {
     background-color: #ffffff;
     color: #000000;
