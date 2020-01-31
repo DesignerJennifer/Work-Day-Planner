@@ -1,7 +1,7 @@
 //Displays current date.
 var currentDate = moment().format("dddd, MMMM Do YYYY");
-
 document.getElementById("currentDay").innerHTML = currentDate;
+
 //Displays current hour
 var currentHour = moment().format("HH");
 console.log(currentHour)
@@ -10,7 +10,7 @@ var timeDisplay = ["nine", "ten", "eleven", "noon", "one", "two", "three", "for"
 var hourValues = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 1, 2, 3, 4, 5, 6, 7, 8];
 var hourBlocks = moment.duration(1, 'hours');
 
-
+//dynamically generated planner rows/columns
 function showPlanner() {
   for (let index = 0; index < hourValues.length; index++) {
     var row = $("<div class='row'>")
@@ -41,6 +41,15 @@ function showPlanner() {
 showPlanner()
 
 
-  $("textarea.form-control").css("background-color","red");
+//default color (time passed)
+$("textarea.form-control").css("background-color","lightgrey");
 
-  
+function futureApp() {
+  if (currentHour <= hourValues.length[index]) {
+    $("textarea.form-control").css("background-color","green");
+  }
+
+}
+
+
+
