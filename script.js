@@ -51,5 +51,14 @@ function futureApp() {
 
 }
 
+$("saveBtn").on("click", "textarea", function(){
+  var test = localStorage.getItem("test");
+  var obj = [];
+  if(test){
+      obj= JSON.parse(test);  
+  }
+  obj.push({"id":  id, "name":name});
+  localStorage.setItem("test",JSON.stringify(obj));
+});
 
 
