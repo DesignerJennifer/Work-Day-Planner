@@ -8,26 +8,29 @@ document.getElementById("currentDay").innerHTML = currentDate;
 var currentHour = moment().hour();
 //console.log(currentHour)
 
-//hourValues grabs the data as military time in order to create unique labels for the time
+//Hours are listed in an array, using military time.
 var hourValues = [9, 10, 11, 12, 13, 14, 15, 16, 17];
 
-//hourBlocks is telling us the length of time each input field on the planner represents.
+//The length of time each input field represents is 1 hour
 var hourBlocks = moment.duration(1, 'hours');
-
-//dynamically generated planner rows/columns
 
 //Creating the fuction that creates the day planner
 function showPlanner() {
   //for loop that loop thorugh the hourvalues index
   for (let index = 0; index < hourValues.length; index++) {
-    //
+    //this creates a row for the planer
     var row = $("<div class='row'>")
+    //this creates the columns for the planner
     var col1 = $("<div class='col-sm-2 text-right'>")
 
+    //this formats the time to display with zeros and shows the times as AM
     col1.html(hourValues[index] + ":00 AM")
 
+    //Because the time in the index is referenced in military time, this function converts the time to an AM/PM format 
     if (hourValues[index] >= 12) {
+      //the hour blocks are organized in an array, and each time is subtracted by 12 to arrive at the AM/PM format.
       var hours = hourValues[index] - 12;
+      //if he hour is equal to 0, then 
       if (hours === 0) {
         (hours = 12)
       }
@@ -40,15 +43,12 @@ function showPlanner() {
     
     if(currentHour < hourValues[index]) {
       textarea = $("<textarea class='form-control bg-success text-white'>")
-
     }
     else if(hourValues[index] === currentHour) {
       textarea = $("<textarea class='form-control bg-danger text-white'>")
-
     }
     else   {
       textarea = $("<textarea class='form-control bg-secondary text-white'>");
-
     }
     textarea.attr("id", "textarea" + index)
 
@@ -71,23 +71,5 @@ $(".saveBtn").on("click", function() {
       for (let index = 0; index < hourValues.length; index++) {
                var getTextareaValue = $("#textarea" + index).val();
                localStorage.setItem("textarea" + index, getTextareaValue);
-          
-               
       }
 })
-
-// //default color (time passed)
-// $("textarea.form-control").css("background-color","lightgrey");
-
-// function futureApp() {
-
-//   var hourValues = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 1, 2, 3, 4, 5, 6, 7, 8];
-  
-//   if (currentHour <= hourValues.length[index]) {
-//     $("textarea.form-control").css("background-color","green");
-//   }
-
-// }
-
-
-
