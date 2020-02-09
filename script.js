@@ -16,47 +16,62 @@ var hourBlocks = moment.duration(1, 'hours');
 
 //Creating the fuction that creates the day planner
 function showPlanner() {
+
   //for loop that loop thorugh the hourvalues index
   for (let index = 0; index < hourValues.length; index++) {
-    //this creates a row for the planer
+    
+    //Creates a row for the planer
     var row = $("<div class='row'>")
-    //this creates the columns for the planner
-    var col1 = $("<div class='col-sm-2 text-right'>")
+    
+    //Creates the columns for the planner
+    var col1 = $("<div class='col-sm-2 numBorder timeStyle text-right'>")
 
-    //this formats the time to display with zeros and shows the times as AM
+    //Formats the time to display with zeros and shows the times as AM
     col1.html(hourValues[index] + ":00 AM")
 
-    //Because the time in the index is referenced in military time, this function converts the time to an AM/PM format 
+    //Converts military time to an AM/PM format by subtracting 12 from each number
     if (hourValues[index] >= 12) {
+
       //the hour blocks are organized in an array, and each time is subtracted by 12 to arrive at the AM/PM format.
       var hours = hourValues[index] - 12;
-      //if he hour is equal to 0, then 
+      
+      //sets midnight to the number 12 rather than zero
       if (hours === 0) {
         (hours = 12)
       }
+      //add the PM lable to hours after noon
       col1.html(hours + ":00 PM")
     }
 
-    var col2 = $("<div class='col-sm-8'>")
+    //text input box
+    var col2 = $("<div class='col-sm-8 textInput'>")
 
-    var   textarea = $("<textarea class='form-control'>")
+    //save button for text area
+    var textarea = $("<textarea class='form-control'>")
     
+    //sets the color of the columns based on the time of day
     if(currentHour < hourValues[index]) {
+
+      //upcomming hour
       textarea = $("<textarea class='form-control bg-success text-white'>")
     }
     else if(hourValues[index] === currentHour) {
+      //current time
       textarea = $("<textarea class='form-control bg-danger text-white'>")
     }
     else   {
+      //past hour
       textarea = $("<textarea class='form-control bg-secondary text-white'>");
     }
+
+
     textarea.attr("id", "textarea" + index)
 
     var getTextareaValue = localStorage.getItem("textarea" + index);
     textarea.text(getTextareaValue);
 
     col2.append(textarea)
-    var col3 = $("<div class='col-sm-2'>")
+    var col3 = $("<div class='col-sm-2 textInput'>")
     var saveBtn = $("<button class='btn btn-primary saveBtn'>")
     saveBtn.text("Save")
     col3.append(saveBtn)
